@@ -1,0 +1,11 @@
+Student information: 
+10001| Lam Ha Thu     | Ha Noi    | 0436347323  | IT   |
+Transcript: 
+Java Fundamental    | 50        | 10   |
+Java OOP            | 30        | 7    |
+-------------------------------------------------
+Student information: 
+10002| Ha Van An      | Ha Noi    | 0749588123  | AI   |
+Transcript: 
+Java Fundamental    | 50        | 7    |
+-------------------------------------------------

@@ -92,6 +92,12 @@ public class Utility {
                 student.getPhone(), student.getClass_name());
     }
 
+    protected String outString_Student(Student student) {
+        String a = String.format("%-5d| %-15s| %-10s| %-12s| %-5s|\n", student.getStudent_id(), student.getName(), student.getAddress(),
+                student.getPhone(), student.getClass_name());
+        return a;
+    }
+
     protected void print_StudentList(Student[] students) {
         System.out.printf("%-5s| %-15s| %-10s| %-12s| %-5s|\n", "ID", "Student Name", "Address", "Contact", "Class");
         for (Student student : students) {
@@ -102,6 +108,19 @@ public class Utility {
         System.out.println();
     }
 
+    protected String outString_StudentList(Student[] students) {
+        String a = String.format("%-5s| %-15s| %-10s| %-12s| %-5s|\n", "ID", "Student Name", "Address", "Contact", "Class");
+        String b = "";
+        for (Student student : students) {
+            if (student.getStudent_id() != 0) {
+                b += String.format("%-5d| %-15s| %-10s| %-12s| %-5s|\n", student.getStudent_id(), student.getName(), student.getAddress(),
+                        student.getPhone(), student.getClass_name());
+            }
+        }
+        System.out.println();
+        return a + b;
+    }
+
     protected void print_SubjectList(Subject[] subjects) {
         System.out.printf("%-5s| %-20s| %-10s| %-15s|\n", "ID", "Subject Name", "Credit", "Type");
         for (Subject subject : subjects) {
@@ -109,6 +128,17 @@ public class Utility {
                 System.out.println(subject.toString());
             }
         }
+    }
+
+    protected String outString_Subject(Subject[] subjects) {
+        String a = String.format("%-5s| %-20s| %-10s| %-15s|\n", "ID", "Subject Name", "Credit", "Type");
+        String b = "";
+        for (Subject subject : subjects) {
+            if (subject.getSubject_id() != 0) {
+                b += subject.toString();
+            }
+        }
+        return a + b;
     }
 
     protected void print_Transcript(Transcript[] transcripts) {
@@ -125,6 +155,28 @@ public class Utility {
                 System.out.println("-------------------------------------------------");
             }
         }
+    }
+
+    protected String outString_Transcript(Transcript trans) {
+        String a = "Student information: \n" + outString_Student(trans.getStudent()) + "Transcript: \n";
+        String b = "";
+        for (int i = 0; i < trans.getSubjects().length; i++) {
+            if (trans.getSubjects()[i].getSubject_id() != 0) {
+                b += String.format("%-20s| %-10d| %-5d|\n", trans.getSubjects()[i].getSubject_name(), trans.getSubjects()[i].getCredit(), trans.getMarks()[i]);
+            }
+        }
+        b = b + ("-------------------------------------------------\n");
+        return a + b;
+    }
+
+    protected String outString_Transcripts(Transcript[] transcripts) {
+        String out = "";
+        for (int i = 0; i < transcripts.length; i++) {
+            if (transcripts[i].getStudent().getStudent_id() != 0) {
+                out += outString_Transcript(transcripts[i]);
+            }
+        }
+        return out;
     }
 
     protected Student find_Student(Student[] students) {

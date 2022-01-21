@@ -1,0 +1,5 @@
+ID   | Student Name   | Address   | Contact     | Class|
+10001| Lam Ha Thu     | Ha Noi    | 0436347323  | IT   |
+10002| Ha Van An      | Ha Noi    | 0749588123  | AI   |
+10003| Tran Van Tuan  | Hung Yen  | 0742388123  | SE   |
+10004| Quoc Ky        | Ha Noi    | 0705045677  | AI   |

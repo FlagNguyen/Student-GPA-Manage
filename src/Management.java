@@ -2,9 +2,11 @@
 import Model.Student;
 import Model.Subject;
 import Model.Transcript;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 
 
 /*
@@ -133,29 +135,26 @@ public class Management {
             }
         }
     }
-    
-    static void writeFileStudent(Student[] students){
-        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("StudentFile.txt",true))){
-            output.writeObject(students);
-        } catch (IOException e) {
-            System.err.println("Error when writing!");
+
+    void output_file(Student[] students) throws FileNotFoundException {
+        FileOutputStream fo = new FileOutputStream("Student List.txt");
+        try (PrintWriter output = new PrintWriter(fo)) {
+            output.print(util.outString_StudentList(students));
         }
     }
-    
-    static void writeFileStudent(Subject[] ses){
-        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("SubjectFile.txt",true))){
-            output.writeObject(ses);
-        } catch (IOException e) {
-            System.err.println("Error when writing!");
-        }
+
+    void output_file(Subject[] ses) throws FileNotFoundException {
+        FileOutputStream fo = new FileOutputStream("Subject List.txt");
+        PrintWriter output = new PrintWriter(fo);
+        output.print(util.outString_Subject(ses));
+        output.close();
     }
-    
-    static void writeFileStudent(Transcript trans){
-        try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("TranscriptsFile.txt",true))){
-            output.writeObject(trans);
-        } catch (IOException e) {
-            System.err.println("Error when writing!");
-        }
+
+    void output_file(Transcript[] transcripts) throws FileNotFoundException {
+        FileOutputStream fo = new FileOutputStream("Transcripts List.txt");
+        PrintWriter output = new PrintWriter(fo);
+        output.print(util.outString_Transcripts(transcripts));
+        output.close();
     }
- 
+
 }

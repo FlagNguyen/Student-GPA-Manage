@@ -1,0 +1,2 @@
+ID   | Subject Name        | Credit    | Type           |
+101  | Java Fundamental    | 50        | Fundamental    |102  | Java OOP            | 30        | Fundamental    |103  | Avanced Math        | 90        | Specialized    |

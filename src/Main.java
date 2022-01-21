@@ -46,13 +46,15 @@ public class Main {
             }
             transcripts[i] = new Transcript(student, ses, q);
         }
-
+        
         //Test data:
-//        students[0] = new Student(10001, "IT", "Lam Ha Thu", "Ha Noi", "0436347323");
-//        students[1] = new Student(10002, "AI", "Ha Van An", "Ha Noi", "0749588123");
-//        students[2] = new Student(10003, "SE", "Tran Van Tuan", "Hung Yen", "0742388123");
-//        subjects[0] = new Subject(101, "Java Fundamental", 50, 2);
-//        subjects[1] = new Subject(102, "Java OOP", 30, 2);
+        students[0] = new Student(10001, "IT", "Lam Ha Thu", "Ha Noi", "0436347323");
+        students[1] = new Student(10002, "AI", "Ha Van An", "Ha Noi", "0749588123");
+        students[2] = new Student(10003, "SE", "Tran Van Tuan", "Hung Yen", "0742388123");
+        subjects[0] = new Subject(101, "Java Fundamental", 50, 2);
+        subjects[1] = new Subject(102, "Java OOP", 30, 2);    
+        
+        
         while (true) {
             System.out.println("1.  Enter new student");
             System.out.println("2.  Enter new subject");
@@ -77,7 +79,8 @@ public class Main {
                         }
                     }
                     System.out.println("-------------------------------------------------------------");
-                    util.print_StudentList(students);                    
+                    util.print_StudentList(students);  
+                    mn.output_file(students);
                     break;
                 case 2:
                     for (int i = 0; i < subjects.length; i++) {
@@ -93,9 +96,11 @@ public class Main {
                     }
                     System.out.println("-------------------------------------------------------------");
                     util.print_SubjectList(subjects);
+                    mn.output_file(subjects);
                     break;
                 case 3:
                     mn.register_Study(students, subjects, transcripts);
+                    mn.output_file(transcripts);
                     break;
                 case 4:
                     System.out.println("1. Sort by student's name");
